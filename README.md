@@ -40,15 +40,15 @@ var matrix = require( 'dstructs-matrix' ),
 	i;
 
 out = cdf( 1 );
-// returns
+// returns ~0.692
 
 x = [ -4, -2, 0, 2, 4 ];
 out = cdf( x );
-// returns [...]
+// returns [ ~0, ~0.001, ~0.368, ~0.873, ~0.982 ]
 
 x = new Float32Array( x );
 out = cdf( x );
-// returns Float64Array( [...] )
+// returns Float64Array( [~0,~0.001,~0.368,~0.873,~0.982] )
 
 x = new Float32Array( 6 );
 for ( i = 0; i < 6; i++ ) {
@@ -63,9 +63,9 @@ mat = matrix( x, [3,2], 'float32' );
 
 out = cdf( mat );
 /*
-	[
-
-	   ]
+	[ ~0     ~0.001
+	  ~0.066 ~0.368
+	  ~0.692 ~0.873 ]
 */
 ```
 
@@ -88,7 +88,7 @@ var out = cdf( x, {
 	'mu': 7,
 	'beta': 6
 });
-// returns [...]
+// returns [ ~0.002, ~0.0113, ~0.0403, ~0.1, ~0.192 ]
 ```
 
 For non-numeric `arrays`, provide an accessor `function` for accessing `array` values.
@@ -109,7 +109,7 @@ function getValue( d, i ) {
 var out = cdf( data, {
 	'accessor': getValue
 });
-// returns [...]
+// returns [ ~0, ~0.001, ~0.368, ~0.873, ~0.982 ]
 ```
 
 
@@ -130,11 +130,11 @@ var out = cdf( data, {
 });
 /*
 	[
-		{'x':[0,]},
-		{'x':[1,]},
-		{'x':[2,]},
-		{'x':[3,]},
-		{'x':[4,]},
+		{'x':[0,~0]},
+		{'x':[1,~0.001]},
+		{'x':[2,~0.368]},
+		{'x':[3,~0.873]},
+		{'x':[4,~0.982]},
 	]
 */
 
@@ -152,13 +152,13 @@ x = new Float64Array( [-4,-2,0,2,4] );
 out = cdf( x, {
 	'dtype': 'float32'
 });
-// returns Float32Array( [...] )
+// returns Float32Array( [~0,~0.001,~0.368,~0.873,~0.982] )
 
 // Works for plain arrays, as well...
 out = cdf( [-4,-2,0,2,4], {
 	'dtype': 'float32'
 });
-// returns Float32Array( [...] )
+// returns Float32Array( [~0,~0.001,~0.368,~0.873,~0.982] )
 ```
 
 By default, the function returns a new data structure. To mutate the input data structure (e.g., when input values can be discarded or when optimizing memory usage), set the `copy` option to `false`.
@@ -175,7 +175,7 @@ x = [ -4, -2, 0, 2, 4 ];
 out = cdf( x, {
 	'copy': false
 });
-// returns [...]
+// returns [ ~0, ~0.001, ~0.368, ~0.873, ~0.982 ]
 
 bool = ( x === out );
 // returns true
@@ -195,9 +195,9 @@ out = cdf( mat, {
 	'copy': false
 });
 /*
-	[
-
-	   ]
+	[ ~0     ~0.001
+	  ~0.066 ~0.368
+	  ~0.692 ~0.873 ]
 */
 
 bool = ( mat === out );
