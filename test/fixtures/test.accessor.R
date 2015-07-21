@@ -1,10 +1,11 @@
 options( digits = 16 )
 library( jsonlite )
+library( FAdist )
 
-mu = 0
-beta = 1
+mu = 300
+beta = 100
 x = seq( -1000, 1000, 0.5 )
-y = pgumbel( x, mu, beta )
+y = pgumbel( x, beta, mu )
 
 cat( y, sep = ",\n" )
 
