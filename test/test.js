@@ -132,15 +132,13 @@ describe( 'distributions-gumbel-cdf', function tests() {
 			data = validationData.data,
 			expected = validationData.expected.map( function( d ) {
 				return d === 'Inf' ? Infinity : d;
-			}),
-			mu = validationData.mu,
-		beta = validationData.beta;
+			});
 
 			var actual;
 			for ( var i = 0; i < data.length; i++ ) {
 				actual =  cdf( data[ i ], {
 					'mu': validationData.mu,
-		'beta': validationData.beta
+					'beta': validationData.beta
 				});
 				if ( isFiniteNumber( actual ) && isFiniteNumber( expected[ i ] ) ) {
 					assert.closeTo( actual, expected[ i ] , 1e-14 );
@@ -164,7 +162,7 @@ describe( 'distributions-gumbel-cdf', function tests() {
 
 		actual = cdf( data, {
 			'mu': validationData.mu,
-		'beta': validationData.beta
+			'beta': validationData.beta
 		});
 		assert.notEqual( actual, data );
 
@@ -177,7 +175,7 @@ describe( 'distributions-gumbel-cdf', function tests() {
 		actual = cdf( data, {
 			'copy': false,
 			'mu': validationData.mu,
-		'beta': validationData.beta
+			'beta': validationData.beta
 		});
 		assert.strictEqual( actual, data );
 
@@ -203,7 +201,7 @@ describe( 'distributions-gumbel-cdf', function tests() {
 
 		actual = cdf( data, {
 			'mu': validationData.mu,
-		'beta': validationData.beta
+			'beta': validationData.beta
 		});
 		assert.notEqual( actual, data );
 
@@ -217,7 +215,7 @@ describe( 'distributions-gumbel-cdf', function tests() {
 		actual = cdf( data, {
 			'copy': false,
 			'mu': validationData.mu,
-		'beta': validationData.beta
+			'beta': validationData.beta
 		});
 		expected = new Float32Array( validationData.expected.map( function( d ) {
 			return d === 'Inf' ? Infinity : d;
@@ -247,7 +245,7 @@ describe( 'distributions-gumbel-cdf', function tests() {
 		actual = cdf( data, {
 			'dtype': 'float32',
 			'mu': validationData.mu,
-		'beta': validationData.beta
+			'beta': validationData.beta
 		});
 
 		assert.notEqual( actual, data );
@@ -278,7 +276,7 @@ describe( 'distributions-gumbel-cdf', function tests() {
 		actual = cdf( data, {
 			'accessor': getValue,
 			'mu': validationData.mu,
-		'beta': validationData.beta
+			'beta': validationData.beta
 		});
 		assert.notEqual( actual, data );
 
@@ -293,7 +291,7 @@ describe( 'distributions-gumbel-cdf', function tests() {
 			'accessor': getValue,
 			'copy': false,
 			'mu': validationData.mu,
-		'beta': validationData.beta
+			'beta': validationData.beta
 		});
 		assert.strictEqual( actual, data );
 
@@ -322,7 +320,7 @@ describe( 'distributions-gumbel-cdf', function tests() {
 		actual = cdf( data, {
 			'path': 'x.1',
 			'mu': validationData.mu,
-		'beta': validationData.beta
+			'beta': validationData.beta
 		});
 
 		expected = validationData.expected
@@ -349,7 +347,7 @@ describe( 'distributions-gumbel-cdf', function tests() {
 			'path': 'x/1',
 			'sep': '/',
 			'mu': validationData.mu,
-		'beta': validationData.beta
+			'beta': validationData.beta
 		});
 		assert.strictEqual( actual, data );
 
@@ -376,7 +374,7 @@ describe( 'distributions-gumbel-cdf', function tests() {
 		mat = matrix( d1, [5,5], 'float64' );
 		out = cdf( mat, {
 			'mu': validationData.mu,
-		'beta': validationData.beta
+			'beta': validationData.beta
 		});
 
 		for ( i = 0; i < out.length; i++ ) {
@@ -415,7 +413,7 @@ describe( 'distributions-gumbel-cdf', function tests() {
 		out = cdf( mat, {
 			'dtype': 'float32',
 			'mu': validationData.mu,
-		'beta': validationData.beta
+			'beta': validationData.beta
 		});
 
 		assert.strictEqual( out.dtype, 'float32' );
