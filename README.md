@@ -7,7 +7,7 @@ Cumulative Distribution Function
 The [cumulative distribution function](https://en.wikipedia.org/wiki/Cumulative_distribution_function) for a [Gumbel](https://en.wikipedia.org/wiki/Gumbel_distribution) random variable is
 
 <div class="equation" align="center" data-raw-text="" data-equation="eq:cdf">
-	<img src="" alt="Cumulative distribution function for a Gumbel distribution.">
+	<img src="https://cdn.rawgit.com/distributions-io/gumbel-cdf/058c93f891b84a8b6a57edaed002cc2d5f3cbdf2/docs/img/eqn.svg" alt="Cumulative distribution function for a Gumbel distribution.">
 	<br>
 </div>
 
